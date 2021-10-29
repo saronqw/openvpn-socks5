@@ -1,6 +1,6 @@
 from datetime import datetime
 from pydantic import BaseModel
-from typing import Dict, List
+from typing import Dict
 
 
 class ConfigurationBase(BaseModel):
@@ -21,7 +21,3 @@ class Container(BaseModel):
     started_at: datetime
     finished_at: datetime
     ovpn_file: str
-
-
-class ContainerList(BaseModel):
-    containers: List[Container]

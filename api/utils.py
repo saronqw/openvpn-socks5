@@ -14,9 +14,7 @@ def create_containter(filename: str):
         used_port = container.ports.get('1080/tcp')[0].get('HostPort')
         used_ports.add(used_port)
 
-    print(used_ports)
     port = 1080
-
     while str(port) in used_ports:
         port += 1
 

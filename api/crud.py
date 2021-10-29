@@ -20,7 +20,6 @@ def get_configs(db: Session, skip: int = 0, limit: int = 100):
 
 
 def del_config(db: Session, config_id: int):
-    print('config_id', config_id)
     query = db.query(models.Configuration).filter(
         models.Configuration.id == config_id
     ).delete()
