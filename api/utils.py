@@ -83,9 +83,8 @@ def delete_container_by_id(container_id: str):
 
 def create_config_file(file: UploadFile):
     filename = file.filename
-    with open(filename, "wb") as buffer:
+    with pathlib.Path('configs/', filename).open("wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
-    shutil.move('./' + filename, './configs/')
 
 
 def delete_config_file(config: Configuration):
