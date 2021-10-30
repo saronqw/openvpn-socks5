@@ -60,9 +60,11 @@ def get_info_container(container: Container):
 
 
 def get_info_container_by_id(container_id: str):
-    container = DOCKER_CLIENT.containers.get(container_id)
-    if not container:
+    try:
+        container = DOCKER_CLIENT.containers.get(container_id)
+    except docker.errors.NotFound:
         return False
+
     return get_info_container(container)
 
 
